@@ -24,7 +24,7 @@ const Index = () => {
           </ButtonLink>
           <p className="text-gray-500 text-sm mt-3 pl-2">
             Belum memiliki akun ? 
-            <Link href={"/"} className="ml-2 text-[#156C6D] font-semibold">
+            <Link href={"/register"} className="ml-2 text-[#156C6D] font-semibold">
               Daftar Sekarang
             </Link>
           </p>
