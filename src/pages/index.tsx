@@ -1,4 +1,3 @@
-import { type } from "os";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,19 +19,19 @@ const Index = () => {
           <p className=" max-w-lg mb-20 font-light text-gray-400 text-lg">
             Kesehatan ditentukan oleh mental, fisik dan kepribadian yang baik, bukan hanya ketiadaan penyakit. 
           </p>
-          <ButtonLink href={"/"} className="bg-[#156C6D] text-white text-lg w-max py-4 font-normal">
+          <ButtonLink href={"./booking"} className="bg-[#156C6D] text-white text-lg w-max py-4 font-normal">
             Buat reservasi sekarang <BsArrowRight className="inline text-2xl ml-2"/>
           </ButtonLink>
           <p className="text-gray-500 text-sm mt-3 pl-2">
             Belum memiliki akun ? 
-            <Link href={""} className="ml-2 text-[#156C6D] font-semibold">
+            <Link href={"/"} className="ml-2 text-[#156C6D] font-semibold">
               Daftar Sekarang
             </Link>
           </p>
         </div>
         <div className="relative max-w-1/5">
           <Image 
-            src={"./landing-image.svg"} 
+            src={"/landing-image.svg"} 
             alt={""} 
             width={700} 
             height={600}
