@@ -14,7 +14,7 @@ function Navbar(){
             <div className="space-x-5 flex items-center">
                 <Link href={""}>Home</Link>
                 <Link href={""}>Services</Link>
-                <Link href={""}>Doctors</Link>
+                <Link href={"/doctor"}>Doctors</Link>
                 <Link href={""}>About Us</Link>
                 <Link href={""}>Contact Us</Link>
             </div>
