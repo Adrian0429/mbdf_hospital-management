@@ -20,7 +20,7 @@ function Navbar(){
             </div>
             <div className="flex flex-row space-x-10">
                 <ButtonLink href={"/"} className="bg-[#156C6D] text-white">Masuk</ButtonLink>
-                <ButtonLink href={"/"} className="text-[#156C6D] border-[#156C6D] border-2">Daftar</ButtonLink>
+                <ButtonLink href={"/register"} className="text-[#156C6D] border-[#156C6D] border-2">Daftar</ButtonLink>
             </div>
         </nav>
     )
