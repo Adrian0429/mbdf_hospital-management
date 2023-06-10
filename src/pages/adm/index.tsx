@@ -16,6 +16,8 @@ import EditPasien from './components/edit-pasien'
 import EditPerawat from './components/edit-perawat'
 import TambahDokter from './components/tambah-dokter'
 import TambahPerawat from './components/tambah-perawat'
+import JadwalDokter from './components/jadwal-dokter'
+import JadwalPerawat from './components/jadwal-perawat'
 import { NavLink } from 'react-router-dom'
 
 function user_dashboard(){
@@ -39,7 +41,7 @@ function user_dashboard(){
         },
         {
             path:'jadwal',
-            icon:<Jadwal/>
+            icon:<Jadwal Open={Open} setOpen={setOpen}/>
         },
         {
             path:'riwayat-transaksi',
@@ -64,6 +66,14 @@ function user_dashboard(){
         {
             path:'tambah-perawat',
             icon:<TambahPerawat Open={Open} setOpen={setOpen}/>
+        },
+        {
+            path:'jadwal-dokter',
+            icon:<JadwalDokter Open={Open} setOpen={setOpen}/>
+        },
+        {
+            path:'jadwal-perawat',
+            icon:<JadwalPerawat Open={Open} setOpen={setOpen}/>
         },
     ]
 

@@ -38,11 +38,10 @@ function ListPasien({ Open, setOpen }){
                                 <div className=" ml-10 w-[20%] text-sm">{Pasien.nik}</div>
                                 <div className=" ml-5 w-[20%]">{Pasien.name}</div>
                                 <div className="w-[20%]">{Pasien.birth}</div>
-                                <button onClick={() => handleClick('edit-pasien')} className='ml-96'>
-                                    <TiPencil className='ml-36'></TiPencil>
-                                </button>
-                            <div className='ml-auto flex'>
-                                    <a href=""><BiEditAlt className='mr-3 text-2xl'></BiEditAlt></a>
+                                <div className='ml-auto flex'>
+                                    <button onClick={() => handleClick('edit-pasien')}>
+                                        <BiEditAlt className='mr-3 text-2xl'></BiEditAlt>
+                                    </button>
                                     <a href=""><AiOutlineInfoCircle className='text-2xl'></AiOutlineInfoCircle></a>
                                 </div>
                             </div>

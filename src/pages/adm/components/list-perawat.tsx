@@ -45,11 +45,10 @@ function ListPerawat({ Open, setOpen }){
                                 <div className="ml-14 w-[20%]">{Perawat.id}</div>
                                 <div className="w-[20%]">{Perawat.name}</div>
                                 <div className="w-[20%]">{Perawat.birth}</div>
-                                <button onClick={() => handleClick('edit-perawat')} className='ml-96'>
-                                    <TiPencil className='ml-36'></TiPencil>
-                                </button>
                                 <div className='ml-auto flex'>
-                                    <a href=""><BiEditAlt className='mr-3 text-2xl'></BiEditAlt></a>
+                                    <button onClick={() => handleClick('edit-perawat')}>
+                                        <BiEditAlt className='mr-3 text-2xl'></BiEditAlt>
+                                    </button>
                                     <a href=""><AiOutlineInfoCircle className='text-2xl'></AiOutlineInfoCircle></a>
                                 </div>
                             </div>

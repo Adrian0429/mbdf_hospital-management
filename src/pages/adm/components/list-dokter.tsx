@@ -45,12 +45,10 @@ function ListDokter({ Open, setOpen }){
                                 <div className=" w-[20%]">{Doctor.name}</div>
                                 <div className=" w-[20%]">{Doctor.poli}</div>
                                 <div className=" ml-3 w-[20%]">{Doctor.birth}</div>
-                                <button onClick={() => handleClick('edit-dokter')} className='ml-96'>
-                                    <TiPencil></TiPencil>
-                                </button>
-                                
                                 <div className='ml-auto flex'>
-                                    <a href=""><BiEditAlt className='mr-3 text-2xl'></BiEditAlt></a>
+                                    <button onClick={() => handleClick('edit-dokter')}>
+                                        <BiEditAlt className='mr-3 text-2xl'></BiEditAlt>
+                                    </button>
                                     <a href=""><AiOutlineInfoCircle className='text-2xl'></AiOutlineInfoCircle></a>
                                 </div>
                             </div>

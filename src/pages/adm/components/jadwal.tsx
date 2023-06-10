@@ -1,7 +1,10 @@
 import {AiOutlineBook, AiOutlineSearch} from 'react-icons/ai'
 import {BiUserCircle} from 'react-icons/bi'
 
-function Jadwal(){
+function Jadwal({ Open, setOpen }){
+    function handleClick(name: string){
+        setOpen(name);
+    }
     return(
         <main className='flex flex-col w-[100%] px-20'>
             <div className='flex flex-row justify-between items-center h-max mt-14'>
@@ -12,14 +15,14 @@ function Jadwal(){
             </div>
             <div className='mt-10'>
                 <div className='rounded-lg h-full w-2/4 flex flex-row space-x-5'>
-                    <button className='bg-white w-full py-5 flex flex-row space-x-5 items-center justify-center drop-shadow-xl rounded-xl'>
+                    <button onClick={()=>handleClick('jadwal-dokter')} className='bg-white w-full py-5 flex flex-row space-x-5 items-center justify-center drop-shadow-xl rounded-xl'>
                         <AiOutlineBook className='text-5xl text-green-800'/>
                         <div className='text-left'>
                             <h2 className='text-xl font-semibold text-[#404040]'>Jadwal Dokter</h2>
                             <p className='text-[#404040]'>Jadwal</p>
                         </div>
                     </button>
-                    <button className='bg-white w-full py-5 flex flex-row space-x-5 items-center justify-center drop-shadow-xl rounded-xl'>
+                    <button onClick={()=>handleClick('jadwal-perawat')} className='bg-white w-full py-5 flex flex-row space-x-5 items-center justify-center drop-shadow-xl rounded-xl'>
                         <AiOutlineBook className='text-5xl text-green-800' />
                         <div className='text-left'>
                             <h2 className='text-xl font-semibold text-[#404040]'>Jadwal Perawat</h2>
