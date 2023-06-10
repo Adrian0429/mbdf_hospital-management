@@ -1,3 +1,5 @@
+import {TiPencil} from 'react-icons/ti'
+
 import {AiOutlineInfoCircle} from 'react-icons/ai';
 import {BiEditAlt} from 'react-icons/bi';
 
@@ -14,7 +16,10 @@ const Pasiens = [
     { nik: '123456789123456', name: 'Richieboy', birth: '12-03-2003'},
 ]
 
-function ListPasien(){
+function ListPasien({ Open, setOpen }){
+    function handleClick(name: string){
+        setOpen(name);
+    }
     return(
         <main className='flex flex-col w-[100%] px-20'>
            <div className="pt-20 text-4xl font-bold">List <span className="text-green-800">Pasien</span></div>
@@ -33,6 +38,9 @@ function ListPasien(){
                                 <div className=" ml-10 w-[20%] text-sm">{Pasien.nik}</div>
                                 <div className=" ml-5 w-[20%]">{Pasien.name}</div>
                                 <div className="w-[20%]">{Pasien.birth}</div>
+                                <button onClick={() => handleClick('edit-pasien')} className='ml-96'>
+                                    <TiPencil className='ml-36'></TiPencil>
+                                </button>
                             <div className='ml-auto flex'>
                                     <a href=""><BiEditAlt className='mr-3 text-2xl'></BiEditAlt></a>
                                     <a href=""><AiOutlineInfoCircle className='text-2xl'></AiOutlineInfoCircle></a>

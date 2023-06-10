@@ -11,10 +11,15 @@ import ListPasien from './components/list-pasien'
 import ListPerawat from './components/list-perawat'
 import Jadwal from './components/jadwal'
 import RiwayatTransaksi from './components/riwayat-transaksi'
+import EditDokter from './components/edit-dokter'
+import EditPasien from './components/edit-pasien'
+import EditPerawat from './components/edit-perawat'
+import TambahDokter from './components/tambah-dokter'
+import TambahPerawat from './components/tambah-perawat'
 import { NavLink } from 'react-router-dom'
 
 function user_dashboard(){
-    const[Open ,setOpen] = useState('dashboard');
+    const[Open, setOpen] = useState('dashboard');
     const menuItem=[
         {
             path:'dashboard',
@@ -22,15 +27,15 @@ function user_dashboard(){
         },
         {
             path:'list-dokter',
-            icon:<ListDokter/>
+            icon:<ListDokter Open={Open} setOpen={setOpen}/>
         },
         {
             path:'list-pasien',
-            icon:<ListPasien/>
+            icon:<ListPasien Open={Open} setOpen={setOpen}/>
         },
         {
             path:'list-perawat',
-            icon:<ListPerawat/>
+            icon:<ListPerawat Open={Open} setOpen={setOpen}/>
         },
         {
             path:'jadwal',
@@ -39,12 +44,33 @@ function user_dashboard(){
         {
             path:'riwayat-transaksi',
             icon:<RiwayatTransaksi/>
-        }
+        },
+        {
+            path:'edit-dokter',
+            icon:<EditDokter Open={Open} setOpen={setOpen}/>
+        },
+        {
+            path:'edit-pasien',
+            icon:<EditPasien Open={Open} setOpen={setOpen}/>
+        },
+        {
+            path:'edit-perawat',
+            icon:<EditPerawat Open={Open} setOpen={setOpen}/>
+        },
+        {
+            path:'tambah-dokter',
+            icon:<TambahDokter Open={Open} setOpen={setOpen}/>
+        },
+        {
+            path:'tambah-perawat',
+            icon:<TambahPerawat Open={Open} setOpen={setOpen}/>
+        },
     ]
 
     function handleClick(name: string){
         setOpen(name);
     }
+    
   return (
     <div className='flex'>
         <div className="w-[20%] h-screen shadow-xl border border-black-100 flex flex-col bg-green-800">

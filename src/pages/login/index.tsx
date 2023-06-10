@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from "next/image"
 import Link from "next/link";
 import imageSrc from '/public/register-kiri.png'
-import InputBox from '../register/components/InputBox';
+import InputBox from '../../components/InputBox';
 import ButtonLink from '@/components/ButtonLink';
 
 const register = () => {
