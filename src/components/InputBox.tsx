@@ -21,7 +21,7 @@ function InputBox({ className, value, placeholder, onChange }: InputProps) {
 
   return (
     <input  
-      className={`py-2 px-6 rounded-xl text-sm font-extralight ${className}`}
+      className={`py-2 px-6 rounded-xl text-sm font-normal ${className}`}
       value={inputValue}
       placeholder={placeholder}
       onChange={handleInputChange}
