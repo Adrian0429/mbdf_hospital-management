@@ -25,7 +25,7 @@ const Login = () => {
   const onSubmit = async (data: LoginFormInputs) => {
     try {
       const response = await axios.post(
-        "http://localhost:8888/api/pasien/login",
+        "http://localhost:8888/api/admin/login",
         data
       );
       const token = response.data.data.token; // Assuming the token is returned in the response
@@ -34,9 +34,7 @@ const Login = () => {
       } else {
         console.log("tokennya ga masuk cuy");
       }
-      if (response.data.data.role == "pasien") {
-        router.push("/user");
-      } else if (response.data.data.role == "admin") {
+      if (response.data.data.role == "admin") {
         router.push("/adm");
       }
     } catch (error) {
@@ -57,7 +55,7 @@ const Login = () => {
       </div>
       <div className="w-[60%] bg-[#F1FAF9] max-h-[100vh]">
         <div className="text-[#404040] text-3xl font-semibold tracking-tight leading-none ml-16 mt-48 mb-5">
-          Masuk untuk akun
+          Masuk untuk Admin
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="text-[#404040] text-lg font-medium tracking-tight leading-none ml-16 mr-8 mt-3 flex flex-col">
