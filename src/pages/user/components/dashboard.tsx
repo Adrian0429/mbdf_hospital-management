@@ -27,7 +27,8 @@ function Dashboard() {
           );
 
           setUser(response.data.data);
-          console.log("sukses harusnya");
+          localStorage.setItem("nik", response.data.data.nik_pasien);
+          console.log("sukses dashboard");
         }
       } catch (error) {
         console.log(error);

@@ -1,175 +1,40 @@
-const Data = [
-  {
-    tanggal: "20-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "21-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "22-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "23-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "24-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "25-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "26-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "20-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "21-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "22-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "23-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "24-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "25-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "26-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "20-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "21-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "22-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "23-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "24-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "25-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "26-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "20-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "21-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "22-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "23-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "24-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "25-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-  {
-    tanggal: "26-01-2020",
-    dokter: "Dina Sinta",
-    diagnosis: "Sirosis Hati",
-    ruangan: "R0001",
-  },
-];
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+interface Reservasis {
+  Tanggal_reservasi: string;
+  Nama_dokter: string;
+  Nama_diagnosa: string;
+  Nama_Ruangan: string;
+}
 
 function Reservasi() {
+  const [Reservasis, setReservasis] = useState<Reservasis[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const NIK = localStorage.getItem("nik");
+        const token = localStorage.getItem("token");
+        if (token) {
+          const response = await axios.get<Reservasis[]>(
+            `http://localhost:8888/api/pasien/${NIK}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          setReservasis(response.data);
+          console.log(Reservasis);
+        }
+      } catch (error) {
+        console.error("Error fetching NIK:", error);
+      }
+    };
+    fetchData();
+  }, [Reservasis]);
+
   return (
     <main className="flex flex-col w-[100%] h-full px-20">
       <div className="bg-white w-[90%] max-h-[85vh] rounded-2xl px-5 py-7 overflow-auto mx-auto mt-20">
@@ -190,15 +55,17 @@ function Reservasi() {
             Ruangan
           </h6>
         </div>
-        {Data.map((Data, index) => (
+        {Reservasis.map((Data, index) => (
           <div
             key={index}
             className="flex flex-row space-x-4 my-3 mx-5 p-3 justify-center rounded-xl bg-white shadow-lg text-center"
           >
-            <div className="w-2/12 py-2 px-3">{Data.tanggal}</div>
-            <div className="w-4/12 py-2 px-3">{Data.dokter}</div>
-            <div className="w-4/12 py-2 px-3">{Data.diagnosis}</div>
-            <div className="w-2/12 py-2 px-3">{Data.ruangan}</div>
+            <div className="w-2/12 py-2 px-3">
+              {Data.Tanggal_reservasi.substring(10, 0)}
+            </div>
+            <div className="w-4/12 py-2 px-3">{Data.Nama_dokter}</div>
+            <div className="w-4/12 py-2 px-3">{Data.Nama_diagnosa}</div>
+            <div className="w-2/12 py-2 px-3">{Data.Nama_Ruangan}</div>
           </div>
         ))}
       </div>
