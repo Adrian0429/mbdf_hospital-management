@@ -42,19 +42,10 @@ function JadwalDokter(){
             );
 
             setJDokter(response.data);
-            console.log("-- test");
-            if (response.data){
-                console.log("++ test");
-                console.log("++" + response.data);
-            } 
             }
         } catch (error) {
             console.log(error);
-            console.log("? mbuh");
-        } finally{
-            console.log("sukses list pasien admin");
-            console.log(JDokter);
-        }
+        } 
         };
 
         fetchData();

@@ -1,9 +1,8 @@
-import { TiPencil } from "react-icons/ti";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import { BiEditAlt } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 interface DokterList {
   ID_Dokter: string;
@@ -36,12 +35,9 @@ function ListDokter({
           );
 
           setDoctors(response.data);
-          console.log("sukses list dokter admin");
-          console.log(doctors);
         }
       } catch (error) {
         console.log(error);
-        console.log("? mbuh");
       }
     };
 
@@ -76,23 +72,20 @@ function ListDokter({
             Tanggal Lahir
           </div>
         </div>
-        {doctors.map((Doctor, ID_Dokter) => (
+        {doctors.map((Doctor, index) => (
           <div
-            key={ID_Dokter}
+            key={index}
             className="flex flex-row space-x-4 my-2 mx-5 justify-center"
           >
             <div className="bg-slate-200 w-full rounded-xl py-2 px-2 flex flex-row grid-cols-5">
               <div className="ml-14 w-[20%]">{Doctor.ID_Dokter}</div>
               <div className=" w-[20%]">{Doctor.nama_dokter}</div>
               <div className=" w-[20%]">{Doctor.nama_poli}</div>
-              <div className=" ml-3 w-[20%]">{Doctor.tanggal_lahir}</div>
+              <div className=" ml-3 w-[20%]">{Doctor.tanggal_lahir.substring(0,10)}</div>
               <div className="ml-auto flex">
-                <button onClick={() => handleClick("edit-dokter")}>
+                <Link href={`/edit_dokter/${Doctor.ID_Dokter}`}>
                   <BiEditAlt className="mr-3 text-2xl"></BiEditAlt>
-                </button>
-                <a href="">
-                  <AiOutlineInfoCircle className="text-2xl"></AiOutlineInfoCircle>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

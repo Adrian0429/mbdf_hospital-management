@@ -6,9 +6,9 @@ import { BiEditAlt } from "react-icons/bi";
 import { useEffect, useState } from "react";
 
 interface PerawatList {
-  id_perawat: string;
-  nama_perawat: string;
-  tanggal_lahir: string;
+  id_perawat: string,
+  nama_perawat: string,
+  tanggal_lahir:string,
 }
 
 function ListPerawat({
@@ -35,12 +35,9 @@ function ListPerawat({
           );
 
           setPerawats(response.data);
-          console.log("sukses list perawat admin");
-          console.log(perawats);
         }
       } catch (error) {
         console.log(error);
-        console.log("? mbuh");
       }
     };
 
@@ -55,12 +52,7 @@ function ListPerawat({
       <div className="pt-20 text-4xl font-bold">
         List <span className="text-green-800">Perawat</span>
       </div>
-      <div className="flex justify-end">
-        <button onClick={() => handleClick("tambah-perawat")}>
-          <AiFillPlusCircle className="mt-10 mr-8 mb-5 text-4xl text-green-800"></AiFillPlusCircle>
-        </button>
-      </div>
-      <div className="item-center border border-black border-opacity-20 h-[400px] rounded-3xl shadow-lg grid-row-2 overflow-auto">
+      <div className="item-center mt-20 border border-black border-opacity-20 h-[400px] rounded-3xl shadow-lg grid-row-2 overflow-auto">
         <div className="flex flex-row justify-start rounded-3xl h-[10%] mt-3">
           <div className="w-[20%] flex items-center justify-center text-center  font-medium text-gray-500 ">
             ID
@@ -80,7 +72,7 @@ function ListPerawat({
             <div className="bg-slate-200 w-full rounded-xl py-2 px-2 flex flex-row">
               <div className="ml-14 w-[20%]">{Perawat.id_perawat}</div>
               <div className="w-[20%]">{Perawat.nama_perawat}</div>
-              <div className="w-[20%]">{Perawat.tanggal_lahir}</div>
+              <div className="w-[20%]">{Perawat.tanggal_lahir.substring(0,10)}</div>
               <div className="ml-auto flex">
                 <button onClick={() => handleClick("edit-perawat")}>
                   <BiEditAlt className="mr-3 text-2xl"></BiEditAlt>

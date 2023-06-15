@@ -31,6 +31,7 @@ function JadwalPerawat(){
         const fetchData = async () => {
         try {
             const token = localStorage.getItem("token"); // Retrieve the bearer token from local storage
+            // console.log(token);
             if (token) {
             const response = await axios.get<JadwalPerawatList>(
                 "http://localhost:8888/api/admin/perawat/jadwal",
@@ -40,20 +41,11 @@ function JadwalPerawat(){
                 },
                 }
             );
-            console.log(response);
             setJPerawat(response.data);
-            console.log("-- test");
-            if (response.data){
-                console.log("++ test");
-                console.log("++" + response.data);
-            } 
             }
         } catch (error) {
             console.log(error);
-            console.log("? mbuh");
-        } finally{
-            console.log(JPerawat);
-        }
+        } 
         };
 
         fetchData();
