@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import imageSrc from "/public/register-kiri.png";
-import InputBox from "../../components/InputBox";
-import ButtonLink from "@/components/ButtonLink";
 import axios from "axios";
 import { useRouter } from "next/router";
 

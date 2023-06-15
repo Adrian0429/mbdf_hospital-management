@@ -33,14 +33,11 @@ function ListPasien({
               },
             }
           );
-
           setPasiens(response.data);
-          console.log("sukses list pasien admin");
-          console.log(pasiens);
         }
       } catch (error) {
         console.log(error);
-        console.log("? mbuh");
+        console.log("Error");
       }
     };
 
@@ -75,7 +72,7 @@ function ListPasien({
             <div className="bg-slate-200 w-full rounded-xl py-2 px-2 flex flex-row grid-cols-3">
               <div className=" ml-10 w-[20%] text-sm">{Pasien.nik_pasien}</div>
               <div className=" ml-5 w-[20%]">{Pasien.nama}</div>
-              <div className="w-[20%]">{Pasien.tanggal_lahir}</div>
+              <div className="w-[20%]">{Pasien.tanggal_lahir.substring(0,10)}</div>
               <div className="ml-auto flex">
                 <button onClick={() => handleClick("edit-pasien")}>
                   <BiEditAlt className="mr-3 text-2xl"></BiEditAlt>

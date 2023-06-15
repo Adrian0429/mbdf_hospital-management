@@ -39,20 +39,11 @@ function RiwayatTransaksi(){
                 },
                 }
             );
-            console.log(response.data);
             setRList(response.data);
-            console.log("-- test");
-            if (response.data){
-                console.log("++ test");
-                console.log("++" + response.data);
-            } 
             }
         } catch (error) {
             console.log(error);
-            console.log("? mbuh");
-        } finally{
-            console.log(RList);
-        }
+        } 
         };
 
         fetchData();
