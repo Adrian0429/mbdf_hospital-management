@@ -81,11 +81,16 @@ function ListDokter({
               <div className="ml-14 w-[20%]">{Doctor.ID_Dokter}</div>
               <div className=" w-[20%]">{Doctor.nama_dokter}</div>
               <div className=" w-[20%]">{Doctor.nama_poli}</div>
-              <div className=" ml-3 w-[20%]">{Doctor.tanggal_lahir.substring(0,10)}</div>
+              <div className=" ml-3 w-[20%]">
+                {Doctor.tanggal_lahir.substring(0, 10)}
+              </div>
               <div className="ml-auto flex">
-                <Link href={`/edit_dokter/${Doctor.ID_Dokter}`}>
+                {/* <Link href={`adm/edit_dokter/${Doctor.ID_Dokter}`}>
                   <BiEditAlt className="mr-3 text-2xl"></BiEditAlt>
-                </Link>
+                </Link> */}
+                <button onClick={() => handleClick("edit-dokter")}>
+                  <BiEditAlt className="mr-3 text-2xl"></BiEditAlt>
+                </button>
               </div>
             </div>
           </div>
