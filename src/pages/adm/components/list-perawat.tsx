@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 interface PerawatList {
   id_perawat: string;
   nama_perawat: string;
+  tanggal_lahir: string;
 }
 
 function ListPerawat({
@@ -79,7 +80,7 @@ function ListPerawat({
             <div className="bg-slate-200 w-full rounded-xl py-2 px-2 flex flex-row">
               <div className="ml-14 w-[20%]">{Perawat.id_perawat}</div>
               <div className="w-[20%]">{Perawat.nama_perawat}</div>
-              {/* <div className="w-[20%]">{Perawat.birth}</div> */}
+              <div className="w-[20%]">{Perawat.tanggal_lahir}</div>
               <div className="ml-auto flex">
                 <button onClick={() => handleClick("edit-perawat")}>
                   <BiEditAlt className="mr-3 text-2xl"></BiEditAlt>
