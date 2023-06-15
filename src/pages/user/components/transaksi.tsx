@@ -23,8 +23,9 @@ function Transaksi() {
               },
             }
           );
+          console.log(response);
           setObats(response.data);
-          console.log(Obats);
+          console.log("=="+Obats);
         }
       } catch (error) {
         console.error("Error fetching OBATT:", error);

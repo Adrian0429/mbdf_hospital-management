@@ -12,8 +12,8 @@ function Navbar(){
                 height={50}    
             ></Image>
             <div className="space-x-5 flex items-center">
-                <Link href={""}>Home</Link>
-                <Link href={""}>Services</Link>
+                <Link href={"/"}>Home</Link>
+                <Link href={"/booking"}>Services</Link>
                 <Link href={"/doctor"}>Doctors</Link>
                 <Link href={""}>About Us</Link>
                 <Link href={""}>Contact Us</Link>
