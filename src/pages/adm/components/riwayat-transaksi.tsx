@@ -19,7 +19,7 @@ const Riwayats = [
 interface RiwayatList{
     Tanggal:string,
     nik_pasien:string,
-    name:string,
+    nama:string,
     no_telepon:string,
 }
 
@@ -75,7 +75,7 @@ function RiwayatTransaksi(){
                             <div className="bg-slate-200 w-full rounded-xl py-2 px-2 flex flex-row">
                                 <div className="ml-10 w-[20%] text-sm">{Riwayat.Tanggal.substring(0,10)}</div>
                                 <div className="w-[20%]">{Riwayat.nik_pasien}</div>
-                                <div className="ml-7 w-[20%]">{Riwayat.name}</div>
+                                <div className="ml-7 w-[20%]">{Riwayat.nama}</div>
                                 <div className="ml-5 w-[20%]">{Riwayat.no_telepon}</div>
                                 <div className='ml-auto flex'>
                                     <a href=""><BiEditAlt className='mr-3 text-2xl'></BiEditAlt></a>
